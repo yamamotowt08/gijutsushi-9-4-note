@@ -450,7 +450,7 @@ function fillAnswer(key){
   box.innerHTML = `
     <div class="ameta">${a.choice && !a.answer.startsWith('選択')?`<span class="choice">選択：${esc(a.choice)}</span>`:''}
       <span class="seg" role="group" aria-label="表示形式"><button type="button" aria-pressed="true" data-view="text">文章</button><button type="button" aria-pressed="false" data-view="sheet">答案用紙</button></span></div>
-    ${FIGS[id]?`<figure class="fig"><div class="fig-plate">${FIGS[id].svg}</div><figcaption>図　${esc(FIGS[id].caption)}</figcaption></figure>`:''}
+    ${FIGS[id]?`<figure class="fig"><div class="fig-plate">${FIGS[id].svg.split(`"${id}-`).join(`"${key}-`).split(`#${id}-`).join(`#${key}-`)}</div><figcaption>図　${esc(FIGS[id].caption)}</figcaption></figure>`:''}
     <pre class="atext">${esc(a.answer)}</pre>
     <div class="sheetv" hidden></div>
     ${a.keywords&&a.keywords.length?`<div class="kw">${a.keywords.map(k=>`<span>${esc(k)}</span>`).join('')}</div>`:''}
