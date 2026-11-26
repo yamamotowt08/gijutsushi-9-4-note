@@ -8,7 +8,9 @@
 
 ページ：https://yamamotowt08.github.io/gijutsushi-9-4-note/
 
-印刷用 Word 版（A4）：[gijutsushi-9-4-note.docx](gijutsushi-9-4-note.docx)
+印刷用 Word 版（A4）：
+- 要点まとめ（骨子・テーマ別、約15ページ）：[gijutsushi-9-4-summary.docx](gijutsushi-9-4-summary.docx)
+- 全文（模範解答、約120ページ）：[gijutsushi-9-4-note.docx](gijutsushi-9-4-note.docx)
 
 ## 注意
 
