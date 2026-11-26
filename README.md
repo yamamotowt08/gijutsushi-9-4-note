@@ -9,8 +9,12 @@
 ページ：https://yamamotowt08.github.io/gijutsushi-9-4-note/
 
 印刷用 Word 版（A4）：
-- 要点まとめ（骨子・テーマ別、約15ページ）：[gijutsushi-9-4-summary.docx](gijutsushi-9-4-summary.docx)
-- 全文（模範解答、約120ページ）：[gijutsushi-9-4-note.docx](gijutsushi-9-4-note.docx)
+- 要点まとめ・河川版（Ⅱ-1 は河川のみ、10ページ）：[gijutsushi-9-4-summary-kasen.docx](gijutsushi-9-4-summary-kasen.docx)
+- 要点まとめ・全分野（15ページ）：[gijutsushi-9-4-summary.docx](gijutsushi-9-4-summary.docx)
+- 全文・河川版（約90ページ）：[gijutsushi-9-4-note-kasen.docx](gijutsushi-9-4-note-kasen.docx)
+- 全文・全分野（約120ページ）：[gijutsushi-9-4-note.docx](gijutsushi-9-4-note.docx)
+
+ページ上部の「河川版で見る」にチェックを入れると、Ⅱ-1 を河川だけにできます（Ⅱ-2・Ⅲはそのまま）。
 
 ## 注意
 
