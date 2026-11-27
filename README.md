@@ -11,7 +11,7 @@
 印刷用 Word 版（A4）：
 - **統合版・全分野（Ⅱ-1 は河川・ダム・砂防・海岸の4分野、49ページ）**：[gijutsushi-9-4-merged-all.docx](gijutsushi-9-4-merged-all.docx)
   過去問64問すべてを統合問題21問に重ね、令和9年度の予想問題9問と合わせて全30問を図と模範解答つきで収録。
-- 要点まとめ・全分野（15ページ）：[gijutsushi-9-4-summary.docx](gijutsushi-9-4-summary.docx)
+- 要点まとめ（見出しと箇条書きで読みやすくした版、27ページ）：[gijutsushi-9-4-summary.docx](gijutsushi-9-4-summary.docx)
 - 全文・全分野（約120ページ）：[gijutsushi-9-4-note.docx](gijutsushi-9-4-note.docx)
 
 ## 注意
