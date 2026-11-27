@@ -9,8 +9,6 @@
 ページ：https://yamamotowt08.github.io/gijutsushi-9-4-note/
 
 印刷用 Word 版（A4）：
-- **統合版・河川（似た過去問を重ねた版、図と模範解答つき、33ページ）**：[gijutsushi-9-4-merged-kasen.docx](gijutsushi-9-4-merged-kasen.docx)
-  過去問40問（Ⅱ-1 河川・Ⅱ-2・Ⅲ）を統合問題12問に重ね、令和9年度の予想問題6問と合わせて全18問を図と模範解答つきで収録。
 - **統合版・全分野（Ⅱ-1 は河川・ダム・砂防・海岸の4分野、49ページ）**：[gijutsushi-9-4-merged-all.docx](gijutsushi-9-4-merged-all.docx)
   過去問64問すべてを統合問題21問に重ね、令和9年度の予想問題9問と合わせて全30問を図と模範解答つきで収録。
 - 要点まとめ・全分野（15ページ）：[gijutsushi-9-4-summary.docx](gijutsushi-9-4-summary.docx)
