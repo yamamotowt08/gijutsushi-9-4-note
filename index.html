@@ -6,7 +6,7 @@
 <title>技術士 9-4 答案ノート</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDMincho:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDGothic:wght@400;700&family=BIZ+UDMincho:wght@400;700&display=swap">
 <style>
 /* Layout: 試験問題冊子の誌面。問題カードは問題用紙、解答は答案用紙（緑=Ⅱ-1・青=Ⅱ-2・赤=Ⅲ）の色で区別する */
 :root{
@@ -189,6 +189,97 @@ article.q h3{font-size:17px;margin:6px 0 8px;font-family:var(--f-paper)}
 .skw{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .skw span{font-size:12px;border:1px solid var(--line);border-radius:3px;padding:0 6px;color:var(--muted)}
 .common .ssec{background:var(--soft)}
+/* 練習 */
+.pr-modes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.pr-hint{font-size:12.5px;color:var(--muted)}
+.pr-wrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:16px;align-items:start}
+.pr-wrap.exam{grid-template-columns:minmax(0,1fr)}
+.pr-wrap.exam .pr-pick{display:none}
+@media (max-width:820px){.pr-wrap{grid-template-columns:minmax(0,1fr)}}
+.pr-pick{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:10px;display:grid;gap:8px;max-height:78vh;overflow:auto;min-width:0}
+@media (max-width:820px){.pr-pick{max-height:46vh}}
+.pr-pick .frow .lab{width:100%}
+.pr-list{display:grid;gap:4px}
+.pr-item{text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:6px 8px;cursor:pointer;font-size:13px;display:grid;gap:1px;color:var(--ink);font-family:var(--f-ui)}
+.pr-item:hover{background:var(--soft)}
+.pr-item[aria-current="true"]{border-color:var(--accent);background:var(--soft)}
+.pr-item .pi-top{display:flex;justify-content:space-between;gap:6px;font-size:11.5px;color:var(--muted);font-weight:700}
+.pr-item .pi-st{font-weight:700;color:var(--accent)}
+.pr-main{display:grid;gap:10px;min-width:0}
+.pr-empty{background:var(--paper);border:1px dashed var(--line);border-radius:4px;padding:28px 18px;color:var(--muted);text-align:center}
+#pr-body{display:grid;gap:10px;min-width:0}
+.pr-q{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px;min-width:0}
+.pr-q h3{margin:4px 0 8px;font-family:var(--f-paper);font-size:17px}
+.pr-bar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:8px 12px}
+.timer{font-family:var(--f-paper);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;min-width:4.6em}
+.timer.over{color:var(--r)}
+.pr-count{font-size:13px;color:var(--muted);display:inline-flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-variant-numeric:tabular-nums}
+.pr-count .warn{color:var(--r);font-weight:700}
+.pr-count .ok{color:var(--g);font-weight:700}
+.pr-edlab{font-size:12.5px;color:var(--muted)}
+.pr-ed{font-family:'BIZ UDGothic','MS Gothic','Osaka-Mono',monospace;font-size:clamp(12.5px,3.4vw,17px);line-height:1.8;width:calc(24em + 28px);max-width:100%;min-height:20em;padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);resize:vertical;box-sizing:border-box}
+.pr-ed:focus{outline:2px solid var(--accent);outline-offset:1px}
+.pr-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn.danger{background:var(--r);border-color:var(--r);color:#fff}
+.pr-res{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px 16px;display:grid;gap:10px;min-width:0}
+.pr-res h4{margin:0;font-size:15px}
+.pr-score{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline}
+.pr-score b{font-size:26px;font-family:var(--f-paper);font-variant-numeric:tabular-nums}
+.kwl{display:flex;flex-wrap:wrap;gap:6px}
+.kwl span{font-size:12.5px;border:1px solid var(--line);border-radius:3px;padding:1px 7px}
+.kwl .ok{border-color:var(--g);color:var(--g);font-weight:700}
+.kwl .part{border-color:#c89a2a;color:#9a7310}
+.kwl .ng{color:var(--muted);text-decoration:line-through}
+.chk{margin:0;padding-left:0;list-style:none;display:grid;gap:3px;font-size:13.5px}
+.chk li::before{content:"✓ ";color:var(--g);font-weight:700}
+.chk li.no::before{content:"✗ ";color:var(--r)}
+.rate{display:flex;flex-wrap:wrap;gap:6px}
+.rate button{border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:5px 12px;cursor:pointer;font-size:14px;color:var(--ink)}
+.rate button:hover{background:var(--soft)}
+.pr-msg{font-size:13px;color:var(--g);font-weight:700;margin:0}
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px}
+.cmp section{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:10px 14px;min-width:0}
+.cmp h4{margin:0 0 6px;font-size:14px}
+.cmp pre{margin:0;font-family:var(--f-paper);font-size:14px;line-height:1.85;white-space:pre-wrap;word-break:break-word}
+mark{background:var(--hi);color:inherit;padding:0 1px;border-radius:2px}
+.pr-examnav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:8px 12px}
+.pr-examnav .chip{font-size:13px}
+/* 暗記カード */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px 22px;display:grid;gap:12px;min-height:240px;align-content:start;max-width:760px}
+.card .c-meta{font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.card .c-q{font-family:var(--f-paper);font-size:16px;font-weight:700;line-height:1.6}
+.card .c-h{font-size:18px;font-weight:700;color:var(--accent)}
+.card ul{margin:0;padding-left:1.2em;font-size:15px;line-height:1.8}
+.card .c-btns{display:flex;flex-wrap:wrap;gap:8px}
+.card .c-done{font-size:15px;color:var(--muted)}
+.g-ok{background:var(--g)!important;border-color:var(--g)!important;color:#fff!important}
+.g-mid{background:#c89a2a!important;border-color:#c89a2a!important;color:#fff!important}
+.g-ng{background:var(--r)!important;border-color:var(--r)!important;color:#fff!important}
+/* 学習記録 */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:6px}
+.tile{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:10px 14px;display:grid;gap:2px}
+.tile span{font-size:12px;color:var(--muted)}
+.tile b{font-size:26px;font-family:var(--f-paper);font-variant-numeric:tabular-nums}
+.tile small{font-size:12px;color:var(--muted)}
+.prog{display:grid;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:12px 16px}
+.prog .pg{display:grid;grid-template-columns:8.5em minmax(0,1fr) 5.5em;gap:10px;align-items:center;font-size:13.5px}
+.prog .pb{height:10px;background:var(--soft);border-radius:5px;overflow:hidden;display:flex}
+.prog .pb i{display:block;height:100%}
+.prog .pn{font-variant-numeric:tabular-nums;color:var(--muted);text-align:right;font-size:12.5px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.heat{display:grid;grid-template-rows:repeat(7,12px);grid-auto-flow:column;grid-auto-columns:12px;gap:3px;overflow-x:auto;padding:4px 0}
+.heat i{width:12px;height:12px;border-radius:2px;background:var(--soft)}
+.heat i.on{background:var(--g)}
+.heat i.today{outline:1.5px solid var(--accent)}
+.tbl2{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+.tbl2 table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}
+.tbl2 th,.tbl2 td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.tbl2 td.t{white-space:normal}
+.tbl2 th{background:var(--soft);font-size:12px}
+.weak{display:grid;gap:6px}
+.weak .w{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:8px 12px;font-size:13.5px}
+.weak .w .t{flex:1;min-width:12em}
 .foot{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
 .dls{display:flex;flex-wrap:wrap;gap:8px}
 .dl{display:inline-flex;align-items:center;gap:8px;margin-top:8px;max-width:100%;text-decoration:none;font-weight:700;font-size:14px;border:1px solid var(--accent);color:var(--accent);border-radius:4px;padding:5px 14px}
@@ -211,6 +302,9 @@ article.q h3{font-size:17px;margin:6px 0 8px;font-family:var(--f-paper)}
 <nav class="tabs" role="tablist" aria-label="ページの切り替え">
   <button role="tab" id="tab-trend" aria-controls="p-trend" aria-selected="true">出題傾向</button>
   <button role="tab" id="tab-merge" aria-controls="p-merge" aria-selected="false">統合版</button>
+  <button role="tab" id="tab-prac" aria-controls="p-prac" aria-selected="false">練習</button>
+  <button role="tab" id="tab-card" aria-controls="p-card" aria-selected="false">暗記カード</button>
+  <button role="tab" id="tab-log" aria-controls="p-log" aria-selected="false">学習記録</button>
   <button role="tab" id="tab-sum" aria-controls="p-sum" aria-selected="false">要点まとめ</button>
   <button role="tab" id="tab-past" aria-controls="p-past" aria-selected="false">過去問と模範解答</button>
   <button role="tab" id="tab-pred" aria-controls="p-pred" aria-selected="false">令和9年度 予想問題</button>
@@ -240,6 +334,78 @@ article.q h3{font-size:17px;margin:6px 0 8px;font-family:var(--f-paper)}
   <p class="lead" id="merge-lead"></p>
   <div class="sjump" id="m-jump"></div>
   <div id="merge-body"></div>
+</section>
+
+<!-- 練習 -->
+<section id="p-prac" role="tabpanel" aria-labelledby="tab-prac" hidden>
+  <div class="pr-modes">
+    <button type="button" class="chip" id="pr-mode-one" aria-pressed="true">1問ずつ練習</button>
+    <button type="button" class="chip" id="pr-mode-exam" aria-pressed="false">本番セット（Ⅱ-1・Ⅱ-2・Ⅲ／3時間30分）</button>
+    <span class="pr-hint">書いた答案はこのパソコンに自動で保存されます</span>
+  </div>
+  <div class="pr-wrap">
+    <aside class="pr-pick" id="pr-pick">
+      <div class="frow" id="pr-f-cat"><span class="lab">区分</span></div>
+      <div class="frow" id="pr-f-type"><span class="lab">科目</span></div>
+      <div class="frow" id="pr-f-field"><span class="lab">分野</span></div>
+      <button type="button" class="btn ghost" id="pr-random">この中からランダムに1問</button>
+      <div class="pr-list" id="pr-list"></div>
+    </aside>
+    <div class="pr-main" id="pr-main">
+      <div class="pr-examnav" id="pr-examnav" hidden></div>
+      <div class="pr-empty" id="pr-empty">左の一覧から問題を選ぶと、ここに問題と答案を書く欄が出ます。</div>
+      <div id="pr-body" hidden>
+        <div class="pr-q" id="pr-q"></div>
+        <div class="pr-bar">
+          <span class="timer" id="pr-timer">30:00</span>
+          <button type="button" class="btn" id="pr-start">開始</button>
+          <button type="button" class="btn ghost" id="pr-reset">時間をリセット</button>
+          <span class="pr-count" id="pr-count"></span>
+        </div>
+        <label class="pr-edlab" for="pr-ed">答案（1行24字。改行や見出しだけの行も1行と数えます）</label>
+        <textarea id="pr-ed" class="pr-ed" spellcheck="false" placeholder="1．〇〇&#10;(1) 〇〇&#10;……"></textarea>
+        <div class="pr-actions">
+          <button type="button" class="btn" id="pr-check">自己採点する</button>
+          <button type="button" class="btn ghost" id="pr-compare-btn">模範解答と並べる</button>
+          <button type="button" class="btn ghost" id="pr-sheet-btn">答案用紙で見る</button>
+          <button type="button" class="btn ghost" id="pr-clear">書いた答案を消す</button>
+        </div>
+        <div id="pr-result"></div>
+        <div class="sheetv" id="pr-sheet" hidden></div>
+        <div id="pr-compare" hidden></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 暗記カード -->
+<section id="p-card" role="tabpanel" aria-labelledby="tab-card" hidden>
+  <p class="lead">要点まとめの見出しごとにカードにしました。答えを思い出してから「答えを見る」を押し、覚え具合を選びます。「覚えた」カードは 1日→3日→7日→14日→30日 と間をあけて出てきます。</p>
+  <div class="filters">
+    <div class="frow" id="cd-f-type"><span class="lab">科目</span></div>
+    <div class="frow" id="cd-f-field"><span class="lab">分野</span></div>
+    <div class="frow"><span class="lab">出し方</span>
+      <button type="button" class="chip" data-cdmode="due" aria-pressed="true">今日の復習</button>
+      <button type="button" class="chip" data-cdmode="all" aria-pressed="false">全部をランダムに</button>
+    </div>
+    <div class="fmeta" id="cd-stat"></div>
+  </div>
+  <div class="card" id="cd-card"></div>
+</section>
+
+<!-- 学習記録 -->
+<section id="p-log" role="tabpanel" aria-labelledby="tab-log" hidden>
+  <div id="log-body"></div>
+  <h2>記録の保存と引き継ぎ</h2>
+  <p class="lead">書いた答案・練習の記録・カードの覚え具合・学習済みのチェックは、このパソコン（このブラウザ、またはアプリ）の中に保存されています。別のパソコンに移すときは、ファイルに書き出して、移した先で読み込みます。</p>
+  <div class="pr-actions">
+    <button type="button" class="btn" id="log-export">記録をファイルに書き出す</button>
+    <label class="btn ghost" for="log-import">ファイルから読み込む</label>
+    <input type="file" id="log-import" accept=".json,application/json" hidden>
+    <button type="button" class="btn ghost" id="log-reset">記録をすべて消す</button>
+    <button type="button" class="btn danger" id="log-reset2" hidden>本当に消す（元に戻せません）</button>
+  </div>
+  <p class="pr-msg" id="log-msg" role="status"></p>
 </section>
 
 <!-- 要点まとめ -->
@@ -442,7 +608,7 @@ function cardHTML(q, pre=''){
     <h3>${esc(q.title.replace('【予想】',''))}</h3>
     ${merged ? `<div class="covers">重ねた過去問：${q.covers.map(i=>`<a href="#${i}" data-jump="${i}">${covLabel(i)}</a>`).join('')}</div>` : ''}
     <div class="qtext">${merged?'<p><b>代表問題</b></p>':''}${qtextHTML(q.text)}</div>
-    <div class="actl">${a ? `<button class="btn" type="button" data-toggle="${key}" aria-expanded="false">模範解答を表示</button>${meterHTML(a,q)}` : '<span class="pending">模範解答は準備中です</span>'}</div>
+    <div class="actl">${a ? `<button class="btn" type="button" data-toggle="${key}" aria-expanded="false">模範解答を表示</button><button class="btn ghost" type="button" data-practice="${q.id}">この問題を練習</button>${meterHTML(a,q)}` : '<span class="pending">模範解答は準備中です</span>'}</div>
     <div class="ans" id="ans-${key}" hidden></div>
   </article>`;
 }
@@ -583,11 +749,315 @@ applyFilter(); updateProg();
   });
 })();
 
+/* ---------- 練習・暗記カード・学習記録 ---------- */
+const P = Object.assign({drafts:{}, attempts:[], cards:{}, days:[], newDay:{d:'', n:0}}, store.get('94-prac', {}));
+let saveTimer = null;
+const saveP = () => { clearTimeout(saveTimer); saveTimer = setTimeout(()=>store.set('94-prac', P), 250); };
+const ymd = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const today = () => ymd(new Date());
+const addDays = (s, n) => { const d = new Date(s+'T00:00:00'); d.setDate(d.getDate()+n); return ymd(d); };
+const touchDay = () => { const t = today(); if (!P.days.includes(t)) P.days.push(t); saveP(); };
+const shuffle = a => { for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const fmtSec = s => { s = Math.max(0, Math.round(s)); const h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return (h? h+':'+String(m).padStart(2,'0') : String(m)) + ':' + String(x).padStart(2,'0'); };
+
+// 練習できる問題（統合問題・予想問題・過去問）
+const PI = [];
+for (const m of (D.merged||[])) PI.push(Object.assign({}, MQ[m.id], {cat:'統合'}));
+for (const q of QS) if (AN[q.id]) PI.push(Object.assign({}, q, {cat: q.year==='R9予想' ? '予想' : '過去問'}));
+const PIx = Object.fromEntries(PI.map(p=>[p.id, p]));
+const CAT_ORDER = {'予想':0, '統合':1, '過去問':2}, TYPE_ORDER = {'II-1':0, 'II-2':1, 'III':2}, FIELD_ORDER = {'河川':0,'ダム':1,'砂防':2,'海岸':3,'共通':4};
+PI.sort((a,b)=> CAT_ORDER[a.cat]-CAT_ORDER[b.cat] || TYPE_ORDER[a.type]-TYPE_ORDER[b.type] || FIELD_ORDER[a.field]-FIELD_ORDER[b.field] || (a.cat==='過去問' ? b.id.localeCompare(a.id) : a.id.localeCompare(b.id)));
+const MIN_T = {'II-1':30, 'II-2':60, 'III':100};
+const plabel = p => p.cat==='統合' ? `統合 ${TINFO[p.type].label}${p.type==='II-1' ? ' '+p.field : ''}`
+  : p.cat==='予想' ? `R9予想 ${roman(slotOf(p))}` : `${p.year} ${roman(slotOf(p))}`;
+const lastAttempt = id => { for (let i=P.attempts.length-1; i>=0; i--) if (P.attempts[i].id===id) return P.attempts[i]; return null; };
+const ansRows = t => t.trim() ? rowsOf(t.replace(/\s+$/,'')) : 0;
+
+/* ===== 練習 ===== */
+const PF = Object.assign({cat:'all', type:'all', field:'all'}, store.get('94-prf', {}));
+const PR = {mode:'one', id:null, exam:null, timer:{target:1800, base:0, t0:0, running:false}};
+function prChips(el, key, opts){
+  document.getElementById(el).insertAdjacentHTML('beforeend', opts.map(([v,l])=>`<button type="button" class="chip" data-pf="${key}" data-v="${v}">${l}</button>`).join(''));
+}
+prChips('pr-f-cat','cat',[['all','すべて'],['予想','R9予想'],['統合','統合版'],['過去問','過去問']]);
+prChips('pr-f-type','type',[['all','すべて'],['II-1','Ⅱ-1'],['II-2','Ⅱ-2'],['III','Ⅲ']]);
+prChips('pr-f-field','field',[['all','すべて'],['河川','河川'],['ダム','ダム'],['砂防','砂防'],['海岸','海岸']]);
+const prFiltered = () => PI.filter(p => (PF.cat==='all'||p.cat===PF.cat) && (PF.type==='all'||p.type===PF.type)
+  && (PF.field==='all' || p.type!=='II-1' || p.field===PF.field));
+function prList(){
+  document.querySelectorAll('[data-pf]').forEach(b=>b.setAttribute('aria-pressed', PF[b.dataset.pf]===b.dataset.v));
+  document.getElementById('pr-list').innerHTML = prFiltered().map(p=>{
+    const la = lastAttempt(p.id), dr = (P.drafts[p.id]||'').trim();
+    const st = la ? la.rating + ' ' + la.kw + '%' : dr ? '下書き' : '';
+    return `<button type="button" class="pr-item" data-pid="${p.id}" aria-current="${p.id===PR.id}"><span class="pi-top"><span>${esc(plabel(p))}</span><span class="pi-st">${esc(st)}</span></span><span>${esc(p.title.replace('【予想】',''))}</span></button>`;
+  }).join('') || '<p class="pending">条件に合う問題がありません</p>';
+}
+function timerNow(){ const t = PR.timer; return t.base + (t.running ? (Date.now()-t.t0)/1000 : 0); }
+function timerShow(){
+  const t = PR.timer, el = document.getElementById('pr-timer'), left = t.target - timerNow();
+  el.textContent = left >= 0 ? fmtSec(left) : '+' + fmtSec(-left);
+  el.classList.toggle('over', left < 0);
+  el.title = left >= 0 ? '残り時間' : '時間を過ぎています';
+  document.getElementById('pr-start').textContent = t.running ? '一時停止' : (t.base > 0 ? '再開' : '開始');
+}
+function timerReset(min){ PR.timer = {target:min*60, base:0, t0:0, running:false}; timerShow(); }
+setInterval(()=>{ if (PR.timer.running) timerShow(); }, 1000);
+function prCount(){
+  const p = PIx[PR.id]; if (!p) return;
+  const tx = document.getElementById('pr-ed').value, lim = TINFO[p.type].rows, r = ansRows(tx), n = tx.replace(/\s/g,'').length;
+  const pct = Math.min(100, r/lim*100);
+  let note = '';
+  if (r > lim) note = `<span class="warn">${r-lim}行オーバー</span>`;
+  else if (r >= Math.ceil(lim*0.9)) note = '<span class="ok">ちょうどよい分量</span>';
+  else if (r > 0) note = `あと${Math.ceil(lim*0.9)-r}行で9割`;
+  document.getElementById('pr-count').innerHTML = `<span class="meter"><span class="bar"><i style="width:${pct}%;background:var(--${r>lim?'r':TINFO[p.type].c})"></i></span>${r}/${lim}行（${Math.max(1,Math.ceil(r/25))}枚目）・${n.toLocaleString()}字</span>${note}`;
+}
+function prLoad(id, keepTimer){
+  const p = PIx[id]; if (!p) return;
+  PR.id = id;
+  document.getElementById('pr-empty').hidden = true; document.getElementById('pr-body').hidden = false;
+  const t = TINFO[p.type];
+  document.getElementById('pr-q').innerHTML = `<div class="qh"><span class="tag ${t.c}">${t.label}</span><span class="qid">${esc(plabel(p))}</span>${p.cat==='予想'?'<span class="tag y">令和9年度 予想</span>':''}</div>
+    <h3>${esc(p.title.replace('【予想】',''))}</h3>${p.covers?`<div class="covers">重ねた過去問：${p.covers.map(covLabel).join('・')}</div>`:''}<div class="qtext">${qtextHTML(p.text)}</div>`;
+  const ed = document.getElementById('pr-ed'); ed.value = P.drafts[id] || '';
+  ed.style.minHeight = (p.type==='II-1' ? 16 : p.type==='II-2' ? 24 : 30) + 'em';
+  ['pr-result','pr-compare','pr-sheet'].forEach(k=>{ const el=document.getElementById(k); el.innerHTML=''; if(k!=='pr-result') el.hidden=true; });
+  if (!keepTimer) timerReset(MIN_T[p.type]);
+  prCount(); prList(); if (PR.mode==='exam') prExamNav();
+}
+function kwState(kw, T){
+  const norm = s => s.replace(/[\s　]/g,'');
+  const full = norm(kw.replace(/（[^）]*）|\([^)]*\)/g,''));
+  const subs = kw.split(/[・／/（）()、,，\s＝=]/).map(norm).filter(x=>x.length>=2);
+  return T.includes(full) ? 'ok' : subs.some(s=>T.includes(s)) ? 'part' : 'ng';
+}
+function prCheck(){
+  const p = PIx[PR.id], a = getA(PR.id); if (!p || !a) return;
+  const tx = document.getElementById('pr-ed').value, T = tx.replace(/[\s　]/g,'');
+  const kws = (a.keywords||[]).map(k=>({k, st:kwState(k, T)}));
+  const rate = kws.length ? (kws.filter(x=>x.st==='ok').length + kws.filter(x=>x.st==='part').length*0.5) / kws.length : 0;
+  const lim = TINFO[p.type].rows, r = ansRows(tx);
+  const heads = s => (s.match(/^[1-9１-９][．.]/mg)||[]).length;
+  const checks = [
+    [`分量：${r}行（9割の${Math.ceil(lim*0.9)}行以上、${lim}行以内）`, r >= Math.ceil(lim*0.9) && r <= lim],
+    [`大見出し（1．2．…）：${heads(tx)}個（模範解答は${heads(a.answer)}個）`, heads(tx) >= heads(a.answer)],
+  ];
+  if (p.type==='III'){
+    const nv = (tx.match(/観点/g)||[]).length;
+    checks.push([`観点を明記した課題：「観点」が${nv}回（3つ以上）`, nv >= 3], ['新たなリスクとその対策に触れている', /リスク/.test(tx) && /対策/.test(tx)]);
+  }
+  if (p.type==='II-2'){
+    checks.push(['手順を順に書いている（手順・①②など）', /手順|①/.test(tx)], ['留意点と工夫点の両方がある', /留意/.test(tx) && /工夫/.test(tx)], ['関係者との調整がある', /関係者|調整/.test(tx)]);
+  }
+  PR.check = {rows:r, chars:T.length, kw:Math.round(rate*100)};
+  document.getElementById('pr-result').innerHTML = `<div class="pr-res">
+    <div class="pr-score"><span>キーワード <b>${Math.round(rate*100)}%</b></span><span>${kws.filter(x=>x.st==='ok').length}／${kws.length}語を使用（一部一致は半分で計算）</span><span>時間 ${fmtSec(timerNow())}</span></div>
+    <div class="kwl">${kws.map(x=>`<span class="${x.st}" title="${x.st==='ok'?'使えている':x.st==='part'?'一部だけ':'まだ'}">${esc(x.k)}</span>`).join('')}</div>
+    <h4>答案の形</h4><ul class="chk">${checks.map(([l,ok])=>`<li class="${ok?'':'no'}">${esc(l)}</li>`).join('')}</ul>
+    <h4>自分で評価して記録する</h4>
+    <div class="rate">${[['◎','書けた'],['○','だいたい書けた'],['△','あやしい'],['×','書けなかった']].map(([s,l])=>`<button type="button" data-rate="${s}">${s} ${l}</button>`).join('')}</div>
+    <p class="pr-msg" id="pr-msg" role="status"></p></div>`;
+}
+function hl(text, terms){
+  let h = esc(text);
+  [...new Set(terms)].filter(t=>t && t.length>=2).sort((a,b)=>b.length-a.length).forEach(t=>{ h = h.split(esc(t)).join(`<mark>${esc(t)}</mark>`); });
+  return h;
+}
+function prCompare(){
+  const a = getA(PR.id); if (!a) return;
+  const el = document.getElementById('pr-compare'), tx = document.getElementById('pr-ed').value;
+  const terms = []; (a.keywords||[]).forEach(k=>{ terms.push(k.replace(/（[^）]*）|\([^)]*\)/g,'')); k.split(/[・／/（）()、,，\s＝=]/).forEach(s=>{ if (s.length>=2) terms.push(s); }); });
+  const fig = FIGS[PR.id] ? `<figure class="fig"><div class="fig-plate">${FIGS[PR.id].svg.split(`"${PR.id}-`).join(`"pr-${PR.id}-`).split(`#${PR.id}-`).join(`#pr-${PR.id}-`)}</div><figcaption>図　${esc(FIGS[PR.id].caption)}</figcaption></figure>` : '';
+  el.innerHTML = `${fig}<div class="cmp"><section><h4>あなたの答案</h4><pre>${tx.trim() ? hl(tx, terms) : '（まだ書いていません）'}</pre></section>
+    <section><h4>模範解答</h4><pre>${hl(a.answer, terms)}</pre>${a.variants&&a.variants.length?`<div class="variants" style="margin-top:8px"><b>この過去問が出たら</b><dl>${a.variants.map(v=>`<dt>${covLabel(v.id)}</dt><dd>${esc(v.tip)}</dd>`).join('')}</dl></div>`:''}</section></div>`;
+  el.hidden = false;
+}
+function prExamNav(){
+  const nav = document.getElementById('pr-examnav');
+  if (PR.mode!=='exam' || !PR.exam){ nav.hidden = true; return; }
+  nav.hidden = false;
+  nav.innerHTML = `<b>本番セット</b>${PR.exam.ids.map(id=>{ const p=PIx[id]; return `<button type="button" class="chip" data-exam="${id}" aria-pressed="${id===PR.id}">${TINFO[p.type].label}：${esc(p.title.replace('【予想】',''))}</button>`; }).join('')}
+    <button type="button" class="btn ghost" id="pr-exam-new">別の組み合わせ</button>`;
+}
+function prExamStart(){
+  const pool = t => PI.filter(p=>(p.cat==='予想'||p.cat==='統合') && p.type===t && (t!=='II-1' || p.field===(store.get('94-mfield','河川'))));
+  const pick = a => a[Math.floor(Math.random()*a.length)];
+  PR.exam = {ids:[pick(pool('II-1')), pick(pool('II-2')), pick(pool('III'))].filter(Boolean).map(p=>p.id)};
+  timerReset(210); prLoad(PR.exam.ids[0], true); prExamNav();
+}
+function prSetMode(m){
+  PR.mode = m;
+  document.getElementById('pr-mode-one').setAttribute('aria-pressed', m==='one');
+  document.getElementById('pr-mode-exam').setAttribute('aria-pressed', m==='exam');
+  document.querySelector('.pr-wrap').classList.toggle('exam', m==='exam');
+  if (m==='exam') prExamStart(); else { PR.exam = null; prExamNav(); if (PR.id) timerReset(MIN_T[PIx[PR.id].type]); }
+}
+function practice(id){ showTab('tab-prac'); if (PR.mode!=='one') prSetMode('one'); prLoad(id); window.scrollTo({top:0}); }
+prList();
+document.getElementById('pr-ed').addEventListener('input', e=>{ if (!PR.id) return; P.drafts[PR.id] = e.target.value; saveP(); prCount();
+  const sv = document.getElementById('pr-sheet'); if (!sv.hidden) sv.innerHTML = gridHTML(e.target.value, PIx[PR.id]); });
+document.getElementById('p-prac').addEventListener('click', e=>{
+  const f = e.target.closest('[data-pf]'); if (f){ PF[f.dataset.pf] = f.dataset.v; store.set('94-prf', PF); prList(); return; }
+  const it = e.target.closest('[data-pid]'); if (it){ prLoad(it.dataset.pid); document.getElementById('pr-body').scrollIntoView({block:'start'}); return; }
+  const ex = e.target.closest('[data-exam]'); if (ex){ prLoad(ex.dataset.exam, true); return; }
+  const rt = e.target.closest('[data-rate]'); if (rt && PR.check){
+    P.attempts.push(Object.assign({id:PR.id, at:new Date().toISOString(), rating:rt.dataset.rate, sec:Math.round(timerNow()), mode:PR.mode}, PR.check));
+    touchDay(); saveP(); prList();
+    document.getElementById('pr-msg').textContent = `記録しました（${rt.dataset.rate}・キーワード${PR.check.kw}%）。「学習記録」で見られます。`;
+    return;
+  }
+  const id = e.target.closest('button')?.id;
+  if (id==='pr-random'){ const a = prFiltered(); if (a.length) prLoad(a[Math.floor(Math.random()*a.length)].id); }
+  else if (id==='pr-start'){ const t = PR.timer; if (t.running){ t.base = timerNow(); t.running = false; } else { t.t0 = Date.now(); t.running = true; } timerShow(); }
+  else if (id==='pr-reset'){ timerReset(PR.mode==='exam' ? 210 : MIN_T[PIx[PR.id].type]); }
+  else if (id==='pr-check'){ prCheck(); }
+  else if (id==='pr-compare-btn'){ const el=document.getElementById('pr-compare'); if (el.hidden) prCompare(); else el.hidden = true; }
+  else if (id==='pr-sheet-btn'){ const sv=document.getElementById('pr-sheet'); sv.hidden = !sv.hidden; if (!sv.hidden) sv.innerHTML = gridHTML(document.getElementById('pr-ed').value, PIx[PR.id]); }
+  else if (id==='pr-clear'){ const b = e.target.closest('button'); if (b.dataset.sure){ document.getElementById('pr-ed').value=''; delete P.drafts[PR.id]; saveP(); prCount(); prList(); b.textContent='書いた答案を消す'; delete b.dataset.sure; } else { b.dataset.sure='1'; b.textContent='もう一度押すと消えます'; setTimeout(()=>{ b.textContent='書いた答案を消す'; delete b.dataset.sure; }, 4000); } }
+  else if (id==='pr-mode-one'){ prSetMode('one'); }
+  else if (id==='pr-mode-exam' || id==='pr-exam-new'){ prSetMode('exam'); }
+});
+
+/* ===== 暗記カード ===== */
+const CARDS = [];
+if (D.summary) for (const [id, s] of Object.entries(D.summary.items)) {
+  const q = QS.find(x=>x.id===id); if (!q || !s.sections) continue;
+  s.sections.forEach((sec, i)=>CARDS.push({cid:id+'#'+i, id, q:s.q, h:sec.h, pts:sec.pts, type:q.type, field:q.field, year:q.year}));
+}
+const INT = [0, 1, 3, 7, 14, 30], NEW_PER_DAY = 20;
+const CF = Object.assign({type:'all', field:'all', mode:'due'}, store.get('94-cdf', {}));
+let CQ = [], CCUR = null, CFLIP = false;
+function cdChips(el, key, opts){ document.getElementById(el).insertAdjacentHTML('beforeend', opts.map(([v,l])=>`<button type="button" class="chip" data-cf="${key}" data-v="${v}">${l}</button>`).join('')); }
+cdChips('cd-f-type','type',[['all','すべて'],['II-1','Ⅱ-1'],['II-2','Ⅱ-2'],['III','Ⅲ']]);
+cdChips('cd-f-field','field',[['all','すべて'],['河川','河川'],['ダム','ダム'],['砂防','砂防'],['海岸','海岸']]);
+const cdFiltered = () => CARDS.filter(c => (CF.type==='all'||c.type===CF.type) && (CF.field==='all' || c.type!=='II-1' || c.field===CF.field));
+function cdBuild(){
+  const t = today(), list = cdFiltered();
+  if (P.newDay.d !== t) P.newDay = {d:t, n:0};
+  if (CF.mode==='all') CQ = shuffle(list.slice());
+  else {
+    const due = list.filter(c=>P.cards[c.cid] && P.cards[c.cid].due <= t);
+    const fresh = list.filter(c=>!P.cards[c.cid]).slice(0, Math.max(0, NEW_PER_DAY - P.newDay.n));
+    CQ = shuffle(due).concat(fresh);
+  }
+  CCUR = CQ.shift() || null; CFLIP = false; cdRender();
+}
+function cdStat(){
+  const list = cdFiltered(), t = today();
+  const due = list.filter(c=>P.cards[c.cid] && P.cards[c.cid].due <= t).length, learned = list.filter(c=>P.cards[c.cid] && P.cards[c.cid].box>=4).length, seen = list.filter(c=>P.cards[c.cid]).length;
+  document.getElementById('cd-stat').innerHTML = `<span>このセッションの残り ${CQ.length + (CCUR?1:0)}枚</span><span>復習の期限 ${due}枚</span><span>覚えた ${learned}／${list.length}枚</span><span>まだ見ていない ${list.length-seen}枚</span>`;
+  document.querySelectorAll('[data-cf]').forEach(b=>b.setAttribute('aria-pressed', CF[b.dataset.cf]===b.dataset.v));
+  document.querySelectorAll('[data-cdmode]').forEach(b=>b.setAttribute('aria-pressed', CF.mode===b.dataset.cdmode));
+}
+function cdRender(){
+  cdStat();
+  const el = document.getElementById('cd-card');
+  if (!CCUR){ el.innerHTML = `<p class="c-done">${CF.mode==='due' ? '今日の分は終わりました。新しいカードは1日20枚ずつ出ます。「全部をランダムに」でも練習できます。' : 'この条件のカードはありません。'}</p>`; return; }
+  const c = CCUR, st = P.cards[c.cid], t = TINFO[c.type];
+  el.innerHTML = `<div class="c-meta"><span class="tag ${t.c}">${t.label}</span><span>${c.year==='R9予想'?'R9予想':esc(c.year)}　${roman(c.id.split('-').slice(1).join('-'))}</span>${c.type==='II-1'?`<span class="tag f">${esc(c.field)}</span>`:''}<span>${st ? '覚え具合 '+'●'.repeat(st.box)+'○'.repeat(5-st.box) : '新しいカード'}</span></div>
+    <div class="c-q">${esc(c.q)}</div><div class="c-h">▍${esc(c.h)} は？</div>
+    ${CFLIP ? `<ul>${c.pts.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+      <div class="c-btns"><button type="button" class="btn g-ok" data-grade="3">覚えた（3）</button><button type="button" class="btn g-mid" data-grade="2">あやしい（2）</button><button type="button" class="btn g-ng" data-grade="1">まだ（1）</button><a href="#${c.id}" data-jump="${c.id}" style="align-self:center;font-size:13px">全文を見る</a></div>`
+    : `<div class="c-btns"><button type="button" class="btn" data-flip="1">答えを見る（スペース）</button></div>`}`;
+}
+function cdGrade(g){
+  const c = CCUR; if (!c) return;
+  const t = today(), st = P.cards[c.cid] || {box:0, due:t};
+  if (!P.cards[c.cid]) P.newDay.n++;
+  if (g===3){ st.box = Math.min(5, st.box+1); st.due = addDays(t, INT[st.box]); }
+  else if (g===2){ st.box = Math.max(1, st.box); st.due = addDays(t, 1); }
+  else { st.box = 1; st.due = t; CQ.splice(Math.min(CQ.length, 4), 0, c); }
+  P.cards[c.cid] = st; touchDay(); saveP();
+  CCUR = CQ.shift() || null; CFLIP = false; cdRender();
+}
+document.getElementById('p-card').addEventListener('click', e=>{
+  const f = e.target.closest('[data-cf]'); if (f){ CF[f.dataset.cf] = f.dataset.v; store.set('94-cdf', CF); cdBuild(); return; }
+  const m = e.target.closest('[data-cdmode]'); if (m){ CF.mode = m.dataset.cdmode; store.set('94-cdf', CF); cdBuild(); return; }
+  if (e.target.closest('[data-flip]')){ CFLIP = true; cdRender(); return; }
+  const g = e.target.closest('[data-grade]'); if (g) cdGrade(+g.dataset.grade);
+});
+document.addEventListener('keydown', e=>{
+  if (document.getElementById('p-card').hidden || (e.target.closest && e.target.closest('input,textarea,select'))) return;
+  if (e.key===' ' && !CFLIP && CCUR){ e.preventDefault(); CFLIP = true; cdRender(); }
+  else if (CFLIP && ['1','2','3'].includes(e.key)) cdGrade(+e.key);
+});
+
+/* ===== 学習記録 ===== */
+function streak(){
+  const s = new Set(P.days); let n = 0, d = today();
+  if (!s.has(d)) d = addDays(d, -1);
+  while (s.has(d)){ n++; d = addDays(d, -1); }
+  return n;
+}
+function logRender(){
+  const at = P.attempts, ids = new Set(at.map(a=>a.id));
+  const avg = at.length ? Math.round(at.reduce((n,a)=>n+a.kw,0)/at.length) : 0;
+  const learned = CARDS.filter(c=>P.cards[c.cid] && P.cards[c.cid].box>=4).length;
+  const tiles = [['練習した回数', at.length+'回', ''], ['書いた問題', ids.size+'問', `全${PI.length}問中`], ['キーワード率の平均', avg+'%', '自己採点の平均'],
+    ['連続で学習', streak()+'日', `学習した日 ${P.days.length}日`], ['覚えたカード', learned+'枚', `全${CARDS.length}枚中`], ['学習済みのチェック', [...done].length+'問', '']];
+  const groups = [['Ⅱ-1 河川', p=>p.type==='II-1'&&p.field==='河川'], ['Ⅱ-1 ダム', p=>p.type==='II-1'&&p.field==='ダム'], ['Ⅱ-1 砂防', p=>p.type==='II-1'&&p.field==='砂防'],
+    ['Ⅱ-1 海岸', p=>p.type==='II-1'&&p.field==='海岸'], ['Ⅱ-2', p=>p.type==='II-2'], ['Ⅲ', p=>p.type==='III']];
+  const prog = groups.map(([label, fn])=>{
+    const items = PI.filter(p=>(p.cat!=='過去問') && fn(p)), n = items.length;
+    const good = items.filter(p=>{ const la=lastAttempt(p.id); return la && (la.rating==='◎'||la.rating==='○'); }).length;
+    const tried = items.filter(p=>lastAttempt(p.id)).length - good;
+    return `<div class="pg"><span>${label}</span><span class="pb"><i style="width:${n?good/n*100:0}%;background:var(--g)"></i><i style="width:${n?tried/n*100:0}%;background:#c89a2a"></i></span><span class="pn">${good+tried}/${n}問</span></div>`;
+  }).join('');
+  const latest = {}; at.forEach(a=>{ latest[a.id] = a; });
+  const weak = Object.values(latest).filter(a=>a.rating==='△'||a.rating==='×'||a.kw<50).sort((a,b)=>a.kw-b.kw);
+  const days = new Set(P.days), t = today(), start = addDays(t, -55 - new Date(t+'T00:00:00').getDay());
+  let heat = ''; for (let d = start; d <= t; d = addDays(d, 1)) heat += `<i class="${days.has(d)?'on':''} ${d===t?'today':''}" title="${d}"></i>`;
+  document.getElementById('log-body').innerHTML = `
+    <div class="tiles">${tiles.map(([l,v,s])=>`<div class="tile"><span>${l}</span><b>${v}</b><small>${s}</small></div>`).join('')}</div>
+    <h2>統合版・予想問題の進み具合</h2>
+    <div class="prog">${prog}<div class="legend"><span><i style="background:var(--g)"></i>◎○で書けた</span><span><i style="background:#c89a2a"></i>練習した（△×）</span><span>右の数：練習した問題／その分野の統合問題＋予想問題</span></div></div>
+    <h2>学習した日（直近8週）</h2><div class="heat" aria-label="学習した日">${heat}</div>
+    <h2>苦手な問題</h2>
+    <div class="weak">${weak.length ? weak.slice(0,12).map(a=>{ const p=PIx[a.id]; return p ? `<div class="w"><span class="qid">${esc(plabel(p))}</span><span class="t">${esc(p.title.replace('【予想】',''))}</span><span>${a.rating}・キーワード${a.kw}%</span><button type="button" class="btn ghost" data-practice="${a.id}">もう一度練習</button></div>` : ''; }).join('') : '<p class="pending">まだありません。練習して△×を付けた問題や、キーワードが5割未満の問題がここに出ます。</p>'}</div>
+    <h2>最近の練習</h2>
+    <div class="tbl2"><table><thead><tr><th>日時</th><th>問題</th><th>評価</th><th>キーワード</th><th>行数</th><th>時間</th></tr></thead><tbody>
+    ${at.slice(-15).reverse().map(a=>{ const p=PIx[a.id]; const d=new Date(a.at); return `<tr><td>${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}</td><td class="t">${p?esc(plabel(p)+'　'+p.title.replace('【予想】','')):esc(a.id)}</td><td>${a.rating}</td><td>${a.kw}%</td><td>${a.rows}行</td><td>${fmtSec(a.sec)}</td></tr>`; }).join('') || '<tr><td colspan="6">まだ記録がありません</td></tr>'}
+    </tbody></table></div>`;
+}
+document.getElementById('p-log').addEventListener('click', e=>{
+  const id = e.target.closest('button')?.id, msg = document.getElementById('log-msg');
+  if (id==='log-export'){
+    const blob = new Blob([JSON.stringify({app:'gijutsushi-94-note', v:1, at:new Date().toISOString(), prac:P, done:[...done]}, null, 1)], {type:'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `答案ノート_学習記録_${today()}.json`;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+    msg.textContent = 'ファイルに書き出しました（保存先はブラウザやアプリの保存の画面で選べます）。';
+  } else if (id==='log-reset'){ document.getElementById('log-reset2').hidden = false; }
+  else if (id==='log-reset2'){
+    Object.assign(P, {drafts:{}, attempts:[], cards:{}, days:[], newDay:{d:'', n:0}}); done = new Set(); store.set('94-done', []); store.set('94-prac', P);
+    document.getElementById('log-reset2').hidden = true; document.querySelectorAll('[data-done]').forEach(x=>{ x.checked=false; });
+    msg.textContent = '記録をすべて消しました。'; logRender(); prList(); cdBuild(); updateProg();
+  }
+});
+document.getElementById('log-import').addEventListener('change', e=>{
+  const f = e.target.files[0], msg = document.getElementById('log-msg'); if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try {
+      const j = JSON.parse(rd.result);
+      if (j.app!=='gijutsushi-94-note' || !j.prac) throw new Error('形式が違います');
+      Object.assign(P, {drafts:{}, attempts:[], cards:{}, days:[], newDay:{d:'', n:0}}, j.prac); store.set('94-prac', P);
+      done = new Set(j.done||[]); store.set('94-done', [...done]);
+      document.querySelectorAll('[data-done]').forEach(x=>{ x.checked = done.has(x.dataset.done); });
+      msg.textContent = `読み込みました（練習${P.attempts.length}回・カード${Object.keys(P.cards).length}枚）。`;
+      logRender(); prList(); cdBuild(); updateProg();
+    } catch (err) { msg.textContent = 'このファイルは読み込めませんでした。「記録をファイルに書き出す」で作ったファイルを選んでください。'; }
+    e.target.value = '';
+  };
+  rd.readAsText(f);
+});
+cdBuild();
+
 /* ---------- タブ ---------- */
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 function showTab(id){
   tabs.forEach(t=>{ const on = t.id===id; t.setAttribute('aria-selected',on); document.getElementById(t.getAttribute('aria-controls')).hidden = !on; });
   store.set('94-tab', id);
+  if (id==='tab-log') logRender();
 }
 tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.id)));
 function jump(id){
@@ -602,6 +1072,7 @@ function jump(id){
 document.addEventListener('click', e=>{
   const j = e.target.closest('[data-jump]'); if (j){ e.preventDefault(); jump(j.dataset.jump); return; }
   const c = e.target.closest('.chip[data-f]'); if (c){ F[c.dataset.f]=c.dataset.v; store.set('94-filter',F); applyFilter(); return; }
+  const pz = e.target.closest('[data-practice]'); if (pz){ practice(pz.dataset.practice); return; }
   const tg = e.target.closest('[data-toggle]'); if (tg){ setOpen(tg.dataset.toggle, tg.getAttribute('aria-expanded')!=='true'); return; }
   const v = e.target.closest('[data-view]'); if (v){
     const box = v.closest('.ans'), id = realId(box.id.slice(4)), q = getQ(id);
