@@ -8,6 +8,9 @@
 
 ページ：https://yamamotowt08.github.io/gijutsushi-9-4-note/
 
+Windows アプリ版（EXE 1 つ、インストール不要）：https://github.com/yamamotowt08/gijutsushi-9-4-note/releases/latest
+`GijutsushiNote.zip` を展開して「技術士9-4_答案ノート.exe」をダブルクリック。印刷用 Word も中に入っています。
+
 印刷用 Word 版（A4）：
 - **統合版・全分野（Ⅱ-1 は河川・ダム・砂防・海岸の4分野、49ページ）**：[gijutsushi-9-4-merged-all.docx](gijutsushi-9-4-merged-all.docx)
   過去問64問すべてを統合問題21問に重ね、令和9年度の予想問題9問と合わせて全30問を図と模範解答つきで収録。
